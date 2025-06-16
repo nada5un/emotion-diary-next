@@ -81,16 +81,17 @@ function Home() {
             <div className="px-4 sm:px-6 lg:px-8 pb-12">
                 <div className="max-w-7xl mx-auto">
                     {/* Emotion Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <div
+                        className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${
+                            emotions.length
+                        } gap-6`}
+                    >
                         {emotions.map((emotion) => {
                             return (
+                                // make each emotion a card with hover effects
                                 <div
                                     key={emotion.id}
-                                    className={`
-                    relative cursor-pointer transform transition-all duration-300 ease-out hover:scale-102 hover:shadow-xl
-                    ${emotion.bgColor} rounded-2xl p-6 border border-white/50
-                    backdrop-blur-sm
-                  `}
+                                    className={`relative cursor-pointer transform transition-all duration-300 ease-out hover:scale-102 hover:shadow-xl ${emotion.bgColor} rounded-2xl p-6 lg:p-8 border border-white/50 backdrop-blur-sm`}
                                 >
                                     {/* Gradient Background Overlay */}
                                     <div
