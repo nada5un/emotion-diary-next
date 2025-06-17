@@ -77,40 +77,6 @@ function Home() {
                         </li>
                     ))}
                 </ul>
-                {/*<ul className="space-y-4">*/}
-                {/*    /!* Example diary entries *!/*/}
-                {/*    {Array.from({ length: 10 }, (_, index) => (*/}
-                {/*        <li*/}
-                {/*            key={index}*/}
-                {/*            className="flex p-4 rounded-lg shadow transition-colors items-center"*/}
-                {/*        >*/}
-                {/*            <div className="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mr-4">*/}
-                {/*                <span className="material-icons text-blue-500">*/}
-                {/*                    {*/}
-                {/*                        [*/}
-                {/*                            "sentiment_very_satisfied",*/}
-                {/*                            "sentiment_satisfied",*/}
-                {/*                            "sentiment_neutral",*/}
-                {/*                            "sentiment_dissatisfied",*/}
-                {/*                            "sentiment_very_dissatisfied",*/}
-                {/*                        ][index % 5]*/}
-                {/*                    }*/}
-                {/*                </span>*/}
-                {/*            </div>*/}
-                {/*            <div className="flex flex-col flex-grow">*/}
-                {/*                <h2 className="text-xl font-semibold">*/}
-                {/*                    Diary Entry {index + 1}*/}
-                {/*                </h2>*/}
-                {/*                <p className="text-gray-600">*/}
-                {/*                    This is a sample diary entry for the month.*/}
-                {/*                </p>*/}
-                {/*            </div>*/}
-                {/*            <div>*/}
-                {/*                <Button label="Edit"></Button>*/}
-                {/*            </div>*/}
-                {/*        </li>*/}
-                {/*    ))}*/}
-                {/*</ul>*/}
             </div>
         </div>
     );
