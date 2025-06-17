@@ -1,14 +1,12 @@
 "use client";
 
 interface ButtonProps {
-    label?: string;
     iconName?: string;
     onClick?: () => void;
     disabled?: boolean;
 }
 
-const Button = ({
-    label,
+const IconButton = ({
     iconName,
     onClick = () => {},
     disabled = false,
@@ -23,10 +21,9 @@ const Button = ({
             {iconName && (
                 <span className="material-icons z-10 relative">{iconName}</span>
             )}
-            {label && <span className="z-10 relative">{label}</span>}
             <span className="absolute inset-0 w-full h-full rounded-full bg-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
         </button>
     );
 };
 
-export default Button;
+export default IconButton;
