@@ -1,24 +1,32 @@
-// 🧠 Create a reusable React Button component with props: label (string), onClick (function), and disabled (boolean)
-function Button({
-    label,
-    onClick,
-    disabled = false,
-}: {
-    label: string;
-    onClick: () => void;
+"use client";
+
+interface ButtonProps {
+    label?: string;
+    iconName?: string;
+    onClick?: () => void;
     disabled?: boolean;
-}) {
+}
+
+const Button = ({
+    label,
+    iconName,
+    onClick = () => {},
+    disabled = false,
+}: ButtonProps) => {
     return (
         <button
+            type="button"
+            className="group p-2 rounded-full hover:bg-gray-200 transition-colors duration-150 relative overflow-hidden w-10 h-10 cursor-pointer"
             onClick={onClick}
             disabled={disabled}
-            className={`px-4 py-2 rounded bg-blue-500 text-white ${
-                disabled ? "opacity-50 cursor-not-allowed" : ""
-            }`}
         >
-            {label}
+            {iconName && (
+                <span className="material-icons z-10 relative">{iconName}</span>
+            )}
+            {label && <span className="z-10 relative">{label}</span>}
+            <span className="absolute inset-0 w-full h-full rounded-full bg-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
         </button>
     );
-}
+};
 
 export default Button;
