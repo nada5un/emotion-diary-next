@@ -27,7 +27,7 @@ export default function RootLayout({
                     rel="stylesheet"
                 />
             </head>
-            <body className={`${notoSansKR.variable} `}>{children}</body>
+            <body className={`${notoSansKR.className} `}>{children}</body>
         </html>
     );
 }
