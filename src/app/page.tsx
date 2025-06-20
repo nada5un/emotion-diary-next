@@ -46,9 +46,12 @@ function App() {
                             <div className="text-gray-700 hover:text-purple-600 transition-colors duration-200">
                                 Emotions
                             </div>
-                            <button className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-2 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                            <Link
+                                className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-2 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                                href="/list"
+                            >
                                 Get Started
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -205,26 +208,6 @@ function App() {
                             <span className="text-xl font-bold">
                                 Emotion Diary
                             </span>
-                        </div>
-                        <div className="flex space-x-8 text-gray-400">
-                            <a
-                                href="#"
-                                className="hover:text-white transition-colors duration-200"
-                            >
-                                Privacy
-                            </a>
-                            <a
-                                href="#"
-                                className="hover:text-white transition-colors duration-200"
-                            >
-                                Terms
-                            </a>
-                            <a
-                                href="#"
-                                className="hover:text-white transition-colors duration-200"
-                            >
-                                Support
-                            </a>
                         </div>
                     </div>
                     <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
