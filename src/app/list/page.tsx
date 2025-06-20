@@ -3,6 +3,7 @@
 import Button from "@/components/buttons/Button";
 import Header from "@/components/Header";
 import { EMOTIONS } from "@/constants/emotion";
+import React from "react";
 
 function List() {
     const dummyData = [
@@ -26,7 +27,7 @@ function List() {
         },
     ];
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
+        <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-indigo-50">
             <Header
                 title={new Date().toLocaleString("en-US", {
                     month: "long",
@@ -50,11 +51,9 @@ function List() {
                             className={`flex p-4 rounded-lg shadow items-center transition-colors duration-150 bg-white hover:bg-gray-100`}
                         >
                             <div
-                                className={`w-12 h-12 flex items-center justify-center rounded-full mr-4 shrink-0 ${entry.emotion.bgColor}`}
+                                className={`w-12 h-12 bg-gradient-to-br ${entry.emotion.color} mr-4 shrink-0 rounded-2xl flex items-center justify-center mx-auto group-hover:rotate-6 transition-transform duration-300`}
                             >
-                                <span className="material-icons text-blue-500">
-                                    {entry.emotion.emoji}
-                                </span>
+                                <entry.emotion.icon className="w-8 h-8 text-white" />
                             </div>
                             <div className="flex flex-col flex-grow">
                                 <h2 className="text-xl font-semibold">

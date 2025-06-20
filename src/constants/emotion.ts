@@ -1,61 +1,70 @@
+import { Star, Smile, Meh, Frown, X } from "lucide-react";
+
+import { LucideIcon } from "lucide-react";
+
 export interface Emotion {
-    id: string;
-    name: string;
-    emoji: string;
+    level: string;
+    label: string;
+    icon: LucideIcon;
     color: string;
-    gradient: string;
-    description: string;
     bgColor: string;
+    textColor: string;
+    description: string;
 }
 
 export const SUPER_GREAT = {
     id: "super-great",
-    name: "Super Great",
-    emoji: "🤩",
-    color: "text-purple-600",
-    gradient: "from-purple-400 to-pink-400",
-    description: "Feeling exceptionally positive and energetic",
-    bgColor: "bg-purple-50 hover:bg-purple-100",
+    level: "SUPER_GREAT",
+    label: "Super Great",
+    icon: Star,
+    color: "from-purple-600 to-indigo-600",
+    bgColor: "bg-purple-50",
+    textColor: "text-purple-900",
+    description: "Amazing days filled with joy and accomplishment",
 };
 
 export const GREAT = {
     id: "great",
-    name: "Great",
-    emoji: "😊",
-    color: "text-yellow-600",
-    gradient: "from-yellow-400 to-orange-400",
-    description: "Feeling happy and content",
-    bgColor: "bg-yellow-50 hover:bg-yellow-100",
+    level: "GREAT",
+    label: "Great",
+    icon: Smile,
+    color: "from-purple-400 to-indigo-500",
+    bgColor: "bg-blue-50",
+    textColor: "text-purple-800",
+    description: "Good days with positive experiences",
 };
 
 export const USUAL = {
     id: "usual",
-    name: "Usual",
-    emoji: "😐",
-    color: "text-green-600",
-    gradient: "from-green-400 to-teal-400",
-    description: "Feeling neutral and balanced",
-    bgColor: "bg-green-50 hover:bg-green-100",
+    level: "USUAL",
+    label: "Usual",
+    icon: Meh,
+    color: "from-purple-300 to-indigo-400",
+    bgColor: "bg-yellow-50",
+    textColor: "text-purple-700",
+    description: "Regular days with balanced emotions",
 };
 
 export const NOT_GREAT = {
     id: "not-great",
-    name: "Not Great",
-    emoji: "😕",
-    color: "text-blue-600",
-    gradient: "from-blue-400 to-indigo-400",
-    description: "Feeling a bit down or off",
-    bgColor: "bg-blue-50 hover:bg-blue-100",
+    level: "NOT_GREAT",
+    label: "Not Great",
+    icon: Frown,
+    color: "from-purple-200 to-indigo-200",
+    bgColor: "bg-yellow-50",
+    textColor: "text-purple-500",
+    description: "Challenging days that need attention",
 };
 
 export const TERRIBLE = {
     id: "terrible",
-    name: "Terrible",
-    emoji: "😢",
-    color: "text-red-600",
-    gradient: "from-red-400 to-pink-400",
-    description: "Feeling very sad or upset",
-    bgColor: "bg-red-50 hover:bg-red-100",
+    level: "TERRIBLE",
+    label: "Terrible",
+    icon: X,
+    color: "from-purple-100 to-indigo-100",
+    bgColor: "bg-yellow-50",
+    textColor: "text-purple-400",
+    description: "Difficult days requiring self-care",
 };
 
 export const EMOTIONS = {
@@ -67,11 +76,3 @@ export const EMOTIONS = {
 } as const;
 
 export type EmotionId = keyof typeof EMOTIONS;
-
-export const dummyEmotions: Emotion[] = [
-    EMOTIONS.SUPER_GREAT,
-    EMOTIONS.GREAT,
-    EMOTIONS.USUAL,
-    EMOTIONS.NOT_GREAT,
-    EMOTIONS.TERRIBLE,
-];
