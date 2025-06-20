@@ -66,6 +66,8 @@ export const EMOTIONS = {
     TERRIBLE,
 } as const;
 
+export type EmotionId = keyof typeof EMOTIONS;
+
 export const dummyEmotions: Emotion[] = [
     EMOTIONS.SUPER_GREAT,
     EMOTIONS.GREAT,
