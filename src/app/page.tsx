@@ -1,83 +1,70 @@
-"use client";
+import React from "react";
+import { dummyEmotions } from "@/constants/emotion";
 
-import Button from "@/components/buttons/Button";
-import Header from "@/components/Header";
-import { EMOTIONS } from "@/constants/emotion";
-
-function Home() {
-    const dummyData = [
-        {
-            id: 1,
-            date: "2025-06-01",
-            content: "This is my first diary entry for October.",
-            emotion: EMOTIONS.NOT_GREAT,
-        },
-        {
-            id: 2,
-            date: "2025-06-01",
-            content: "Feeling a bit down today.",
-            emotion: EMOTIONS.GREAT,
-        },
-        {
-            id: 3,
-            date: "2025-06-02",
-            content: "Had a great day with friends!",
-            emotion: EMOTIONS.SUPER_GREAT,
-        },
-    ];
+function New() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
-            <Header
-                title={new Date().toLocaleString("en-US", {
-                    month: "long",
-                    year: "numeric",
-                })}
-                leftButton={{
-                    iconName: "chevron_left",
-                    onClick: () => console.log("Previous Month"),
-                }}
-                rightButton={{
-                    iconName: "chevron_right",
-                    onClick: () => console.log("Next Month"),
-                }}
-            />
+            {/* Header */}
+            <div className="py-12 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto text-center">
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent mb-4">
+                        Emotion Diary
+                    </h1>
+                    <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                        Track your emotions and reflect on your day with our
+                        interactive emotion diary.
+                    </p>
+                </div>
+            </div>
 
-            <div className="p-4">
-                <ul className="space-y-4">
-                    {dummyData.map((entry) => (
-                        <li
-                            key={entry.id}
-                            className={`flex p-4 rounded-lg shadow items-center transition-colors duration-150 bg-white hover:bg-gray-100`}
-                        >
-                            <div
-                                className={`w-12 h-12 flex items-center justify-center rounded-full mr-4 shrink-0 ${entry.emotion.bgColor}`}
-                            >
-                                <span className="material-icons text-blue-500">
-                                    {entry.emotion.emoji}
-                                </span>
-                            </div>
-                            <div className="flex flex-col flex-grow">
-                                <h2 className="text-xl font-semibold">
-                                    {new Date(entry.date).toLocaleDateString(
-                                        "en-US",
-                                        {
-                                            month: "long",
-                                            day: "numeric",
-                                            year: "numeric",
-                                        },
-                                    )}
-                                </h2>
-                                <p className="text-gray-600">{entry.content}</p>
-                            </div>
-                            <div>
-                                <Button label="Edit"></Button>
-                            </div>
-                        </li>
-                    ))}
-                </ul>
+            {/* Main Content */}
+            <div className="px-4 sm:px-6 lg:px-8 pb-12">
+                <div className="max-w-7xl mx-auto">
+                    {/* Emotion Grid */}
+                    <div
+                        className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${
+                            dummyEmotions.length
+                        } gap-6`}
+                    >
+                        {dummyEmotions.map((emotion) => {
+                            return (
+                                // make each emotion a card with hover effects
+                                <div
+                                    key={emotion.id}
+                                    className={`relative cursor-pointer transform transition-all duration-300 ease-out hover:scale-102 hover:shadow-xl ${emotion.bgColor} rounded-2xl p-6 lg:p-8 border border-white/50 backdrop-blur-sm`}
+                                >
+                                    {/* Gradient Background Overlay */}
+                                    <div
+                                        className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${emotion.gradient} opacity-0 transition-opacity duration-300 hover:opacity-5`}
+                                    />
+
+                                    {/* Content */}
+                                    <div className="relative z-10 text-center">
+                                        {/* Emoji Display */}
+                                        <div className="text-6xl mb-4 transform transition-transform duration-300 hover:scale-110">
+                                            {emotion.emoji}
+                                        </div>
+
+                                        {/* Emotion Name */}
+                                        <h3
+                                            className={`text-2xl font-bold mb-2 transition-colors duration-300 ${emotion.color}`}
+                                        >
+                                            {emotion.name}
+                                        </h3>
+
+                                        {/* Description */}
+                                        <p className="text-gray-600 text-sm leading-relaxed">
+                                            {emotion.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
             </div>
         </div>
     );
 }
 
-export default Home;
+export default New;
