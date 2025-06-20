@@ -112,18 +112,6 @@ function Editor() {
                                     </button>
                                 ))}
                             </div>
-                            {selectedEmotionData && (
-                                <div
-                                    className={`bg-gradient-to-br from-purple-50 via-white to-indigo-50 p-4 rounded-xl border-2 border-purple-200`}
-                                >
-                                    <p
-                                        className={`text-center ${selectedEmotionData.textColor} font-medium`}
-                                    >
-                                        You selected:{" "}
-                                        {selectedEmotionData.label}
-                                    </p>
-                                </div>
-                            )}
                         </div>
 
                         {/* Description TextArea */}
