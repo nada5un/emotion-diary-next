@@ -1,15 +1,7 @@
 import React from "react";
 import { Heart, BookOpen, Calendar, Sparkles } from "lucide-react";
 import Link from "next/link";
-import { EMOTIONS } from "@/constants/emotion";
-
-const emotions = [
-    EMOTIONS.SUPER_GREAT,
-    EMOTIONS.GREAT,
-    EMOTIONS.USUAL,
-    EMOTIONS.NOT_GREAT,
-    EMOTIONS.TERRIBLE,
-];
+import { EMOTION_LIST } from "@/constants/emotion";
 
 const features = [
     {
@@ -153,7 +145,7 @@ function App() {
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-                        {emotions.map((emotion) => (
+                        {EMOTION_LIST.map((emotion) => (
                             <div
                                 key={emotion.level}
                                 className="group cursor-pointer"
@@ -192,12 +184,12 @@ function App() {
                         emotional awareness through daily journaling.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button className="bg-white text-purple-600 px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                        <Link
+                            className="bg-white text-purple-600 px-16 py-4 rounded-full text-xl font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                            href="/list"
+                        >
                             Start Free Today
-                        </button>
-                        <button className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-purple-600 transition-all duration-300">
-                            View Demo
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </section>

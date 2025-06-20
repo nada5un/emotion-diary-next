@@ -3,6 +3,7 @@ import { Star, Smile, Meh, Frown, X } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 
 export interface Emotion {
+    id: string;
     level: string;
     label: string;
     icon: LucideIcon;
@@ -21,7 +22,7 @@ export const SUPER_GREAT = {
     bgColor: "bg-purple-50",
     textColor: "text-purple-900",
     description: "Amazing days filled with joy and accomplishment",
-};
+} as Emotion;
 
 export const GREAT = {
     id: "great",
@@ -32,7 +33,7 @@ export const GREAT = {
     bgColor: "bg-blue-50",
     textColor: "text-purple-800",
     description: "Good days with positive experiences",
-};
+} as Emotion;
 
 export const USUAL = {
     id: "usual",
@@ -43,7 +44,7 @@ export const USUAL = {
     bgColor: "bg-yellow-50",
     textColor: "text-purple-700",
     description: "Regular days with balanced emotions",
-};
+} as Emotion;
 
 export const NOT_GREAT = {
     id: "not-great",
@@ -54,7 +55,7 @@ export const NOT_GREAT = {
     bgColor: "bg-yellow-50",
     textColor: "text-purple-500",
     description: "Challenging days that need attention",
-};
+} as Emotion;
 
 export const TERRIBLE = {
     id: "terrible",
@@ -65,7 +66,7 @@ export const TERRIBLE = {
     bgColor: "bg-yellow-50",
     textColor: "text-purple-400",
     description: "Difficult days requiring self-care",
-};
+} as Emotion;
 
 export const EMOTIONS = {
     SUPER_GREAT,
@@ -74,5 +75,7 @@ export const EMOTIONS = {
     NOT_GREAT,
     TERRIBLE,
 } as const;
+
+export const EMOTION_LIST = Object.values(EMOTIONS);
 
 export type EmotionId = keyof typeof EMOTIONS;

@@ -48,18 +48,19 @@ export default function Editor({
                 <label className="block text-sm font-medium mb-1">
                     감정 선택
                 </label>
-                <div className="flex gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     {Object.values(EMOTIONS).map((emotion) => (
                         <button
                             key={emotion.id}
-                            type="button"
-                            className={`flex flex-col items-center px-3 py-2 rounded border transition-colors duration-150 ${emotionId === emotion.id ? "bg-blue-100 border-blue-400" : "bg-white border-gray-300"}`}
+                            className={`flex items-center justify-center p-4 rounded-lg transition-colors duration-150 ${
+                                emotion.id === emotionId
+                                    ? "bg-gradient-to-br from-purple-600 to-indigo-600 text-white"
+                                    : "bg-white border border-gray-300 text-gray-700 hover:bg-gray-50"
+                            }`}
                             onClick={() => setEmotionId(emotion.id)}
                         >
-                            <span className="material-icons text-2xl mb-1">
-                                {emotion.emoji}
-                            </span>
-                            <span className="text-xs">{emotion.label}</span>
+                            <emotion.icon className="w-6 h-6 mr-2" />
+                            <span>{emotion.label}</span>
                         </button>
                     ))}
                 </div>
