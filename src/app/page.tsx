@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "@/components/buttons/Button";
-import IconButton from "@/components/buttons/IconButton";
+import Header from "@/components/Header";
 import { EMOTIONS } from "@/constants/emotion";
 
 function Home() {
@@ -26,33 +26,31 @@ function Home() {
         },
     ];
     return (
-        <div>
-            <header className="flex items-center justify-between p-4 bg-white shadow-md">
-                <IconButton
-                    iconName={"chevron_left"}
-                    onClick={() => console.log("Previous Month")}
-                />
-                <h1 className="text-2xl font-bold">
-                    {new Date().toLocaleString("en-US", {
-                        month: "long",
-                        year: "numeric",
-                    })}
-                </h1>
-                <IconButton
-                    iconName={"chevron_right"}
-                    onClick={() => console.log("Next Month")}
-                />
-            </header>
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
+            <Header
+                title={new Date().toLocaleString("en-US", {
+                    month: "long",
+                    year: "numeric",
+                })}
+                leftButton={{
+                    iconName: "chevron_left",
+                    onClick: () => console.log("Previous Month"),
+                }}
+                rightButton={{
+                    iconName: "chevron_right",
+                    onClick: () => console.log("Next Month"),
+                }}
+            />
 
             <div className="p-4">
                 <ul className="space-y-4">
                     {dummyData.map((entry) => (
                         <li
                             key={entry.id}
-                            className={`flex p-4 rounded-lg shadow items-center transition-colors duration-150 hover:bg-gray-50`}
+                            className={`flex p-4 rounded-lg shadow items-center transition-colors duration-150 bg-white hover:bg-gray-100`}
                         >
                             <div
-                                className={`w-12 h-12 flex items-center justify-center rounded-full mr-4 ${entry.emotion.bgColor}`}
+                                className={`w-12 h-12 flex items-center justify-center rounded-full mr-4 shrink-0 ${entry.emotion.bgColor}`}
                             >
                                 <span className="material-icons text-blue-500">
                                     {entry.emotion.emoji}
