@@ -16,7 +16,7 @@ interface HeaderProps {
 
 function Header({ title, leftButton, rightButton }: HeaderProps) {
     return (
-        <header className="flex items-center justify-between p-4 relative">
+        <header className="flex items-center justify-between p-4 relative max-w-4xl mx-auto  sm:px-6 lg:px-8">
             <div className="flex-1 flex justify-start">
                 {leftButton && (
                     <IconButton
@@ -26,7 +26,9 @@ function Header({ title, leftButton, rightButton }: HeaderProps) {
                 )}
             </div>
             <div className="flex-1 flex justify-center">
-                <h1 className="text-2xl font-bold text-center">{title}</h1>
+                <h1 className="text-md lg:text-2xl font-bold text-center">
+                    {title}
+                </h1>
             </div>
             <div className="flex-1 flex justify-end">
                 {rightButton && (
